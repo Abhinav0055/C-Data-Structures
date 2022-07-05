@@ -8,7 +8,6 @@ void swap(int &a, int &b){
     b = temp;
     return;
 }
-
  
 int main () {
    int a = 100;
@@ -17,7 +16,7 @@ int main () {
    cout << "Before swap, value of a :" << a << endl;
    cout << "Before swap, value of b :" << b << endl;
  
-   swap(a, b);
+   swap(a, b); 
  
    cout << "After swap, value of a :" << a << endl;
    cout << "After swap, value of b :" << b << endl;
