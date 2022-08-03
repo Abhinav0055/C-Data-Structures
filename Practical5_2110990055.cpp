@@ -18,19 +18,11 @@ int main()
     cin >> elem;
     cout << "Postion in Array: ";
     cin >> pos;
-    int arr1[n];
     for (i = n; i >= pos; i--)
     {
-        if(i<pos){
-            arr1[i]=arr[i];
-        }
-        else if(i==pos){
-            arr[i]=elem;
-        }
-        else{
-            arr[i]=arr[i-1];
-        }
+        arr[i]=arr[i-1];
     }
+    arr[pos-1]=elem;
     for (i = 0; i < n + 1; i++)
     {
         cout << arr[i] << " ";
