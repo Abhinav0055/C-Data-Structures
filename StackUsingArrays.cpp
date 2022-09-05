@@ -19,6 +19,19 @@ class Stack{
         top = -1;
     }
 
+
+    int getMIN(){
+        int ans = INT_MAX;
+        for(int i=0 ; i < top ; i++){
+
+            ans = max(ans,Stack[i]);
+
+
+        
+            
+        }
+        return ans;
+    }
     void push (int element){
         if (size - top > 1){
             top++;
