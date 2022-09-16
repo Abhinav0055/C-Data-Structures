@@ -2,73 +2,109 @@
 #include <queue>
 using namespace std;
 
-class Queue{
+class Queue
+{
+    public:
     int *arr;
     int size;
-    int front;
+    int Qfront;
     int rear;
 
-    Queue(){
+    Queue()
+    {
         size = 10000;
         arr = new int[size];
-        front = 0;
+        Qfront = 0;
         rear = 0;
     }
 
-    
-  void enqueue(int data){
-        if(rear == size){
+
+    void enqueue(int data)
+    {
+        if (rear == size)
+        {
             cout << "Queue is Full " << endl;
         }
-        else{
+        else
+        {
             arr[rear] = data;
             rear++;
         }
     }
 
-    int dequeue(){
-        if(front == rear ){
+    int dequeue()
+    {
+        if (Qfront == rear)
+        {
             return -1;
         }
-        else{
-            int ans = arr[front];
-            arr[front] = -1;
-            front++;
-            if (front == rear){
-                front = 0;
+        else
+        {
+            int ans = arr[Qfront];
+            arr[Qfront] = -1;
+            Qfront++;
+            if (Qfront == rear)
+            {
+                Qfront = 0;
                 rear = 0;
             }
             return ans;
         }
     }
 
-    bool isEmpty(){
-        if (front == rear){
+    bool isEmpty()
+    {
+        if (Qfront == rear)
+        {
             return true;
         }
-        else{
+        else
+        {
             return false;
-
         }
     }
 
-    int front(){
-        if (front == rear){
+    int front()
+    {
+        if (Qfront == rear)
+        {
             return -1;
         }
 
-        else{
-            return arr[front];
+        else
+        {
+            return arr[Qfront];
         }
-        
     }
+        int display()
+        {
+            if (Qfront && rear == -1)
+            {
+                cout << "Stack Empty" << endl;
+            }
+            else
+            {
+                for (int i = Qfront; i < rear; i++)
+                {
+                    cout << arr[i] << " ";
+                }
+            }
+        }
+    
 };
 
+    int main()
+    {
+        Queue q;
+        q.enqueue(10);
+        q.enqueue(20);
+        q.enqueue(30);
+        q.enqueue(40);
+        q.display();
+        cout << q.dequeue() << endl;
+        q.display();
+
+        
 
 
-int main (){
-  
-    
-
-
-}
+    }

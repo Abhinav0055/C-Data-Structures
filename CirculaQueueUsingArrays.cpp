@@ -20,25 +20,21 @@ class CircularQueue
 
     bool enqueue(int data)
     {
-        if ((front = 0 && rear == size - 1) || ( front != 0 && rear == (front - 1) % (size - 1)))
+        if(front && rear == -1)
         {
-            cout << "Queue is Full ";
-            return false;
-        }
-        else if (front == -1)
-        {
-            front = rear = 0;
-        }
-        else if (rear == size - 1 && front != 0)
-        {
+            front = 0;
             rear = 0;
+            arr[rear] = data;
+      
         }
-        else
-        {
-            rear++;
+        else if(front = (rear+1)%size){
+            cout << "Queue Overflow" << endl;
+
         }
-        arr[rear] = data;
-        return true;
+        else{
+            rear = (rear+1)%size;
+            arr[rear] = data;
+        }
     }
 
     int dequeue()
@@ -62,12 +58,33 @@ class CircularQueue
         }
         return ans;
     }
+
+     int display()
+        {
+            int i;
+            if(front&& rear == -1)
+            {
+                cout << "Queue Empty" << endl;
+                
+
+            }
+            else
+            {
+                while(i != rear)
+                {
+                    i = (i+1)%size;
+                    cout << arr[i] << " ";
+                }
+            }
+        }
+
 };
 
 int main()
 {
     CircularQueue cq;
     cq.enqueue(45);
+    cq.display();
 
 
 

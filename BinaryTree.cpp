@@ -19,21 +19,21 @@ public:
 
 node *buildTree(node *root)
 {
-    cout << "Enter the data: " << endl;
-    int data;
-    cin >> data;
-    root = new node(data);
+        cout << "Enter the data: " << endl;
+        int data;
+        cin >> data;
+        root = new node(data);
 
-    if (data == -1)
-    {
-        return NULL;
-    }
+        if (data == -1)
+        {
+            return NULL;
+        }
 
-    cout << "Enter data for inserting in left: " << endl;
-    root->left = buildTree(root->left);
-    cout << "Enter data for inserting in right: " << endl;
-    root->right = buildTree(root->right);
-    return root;
+        cout << "Enter data for inserting in left: " << endl;
+        root->left = buildTree(root->left);
+        cout << "Enter data for inserting in right: " << endl;
+        root->right = buildTree(root->right);
+        return root;
 }
 
 void levelOrderTraversal(node *root)

@@ -14,7 +14,7 @@ public:
     Stack(int data)
     {
         this->data = data;
-        this->next = next;
+        this->next = next;  
     }
 
     void push(int d)
