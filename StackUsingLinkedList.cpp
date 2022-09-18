@@ -81,7 +81,7 @@ int main()
 
     cout << st.peek() << endl;
 
-    st.pop();
+     st.pop();
 
     cout << st.peek() << endl;
 

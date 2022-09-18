@@ -1,95 +1,123 @@
 #include <iostream>
-#include <queue>
+#define SIZE 10
+
 using namespace std;
 
 class CircularQueue
 {
-    public:
-    int *arr;
-    int size;
-    int front;
-    int rear;
+private:
+    int items[SIZE], front, rear;
 
+public:
     CircularQueue()
     {
-        size = 10001;
-        arr = new int[size];
         front = -1;
         rear = -1;
     }
 
-    bool enqueue(int data)
+    bool isFull()
     {
-        if(front && rear == -1)
+        if (front == 0 && rear == SIZE - 1)
         {
-            front = 0;
-            rear = 0;
-            arr[rear] = data;
-      
+            return true;
         }
-        else if(front = (rear+1)%size){
-            cout << "Queue Overflow" << endl;
-
+        if (front == rear + 1)
+        {
+            return true;
         }
-        else{
-            rear = (rear+1)%size;
-            arr[rear] = data;
-        }
+        return false;
     }
 
-    int dequeue()
+    bool isEmpty()
     {
         if (front == -1)
-        {
-            cout << "Queue is Empty" << endl;
-            return -1;
-        }
-        int ans = arr[front];
-        arr[front] = -1;
-        if(front == rear ){
-            front = rear = -1;
-        }
-        else if(front == size - 1)
-        {
-            front = 0;
-        }
-        else{
-            front++;
-        }
-        return ans;
+            return true;
+        else
+            return false;
     }
 
-     int display()
+    void enQueue(int element)
+    {
+        if (isFull())
         {
-            int i;
-            if(front&& rear == -1)
-            {
-                cout << "Queue Empty" << endl;
-                
+            cout << "Queue is full Insertion Not allowed"<<endl;
+        }
+        else
+        {
+            if (front == -1)
+                front = 0;
+            rear = (rear + 1) % SIZE;
+            items[rear] = element;
+            cout << endl
+                 << "Element Inserted is " << element << endl;
 
-            }
+
+        }
+    }
+
+    int deQueue()
+    {
+        int element;
+        if (isEmpty())
+        {
+            cout << "Queue is empty Deletion Not Allowed" << endl;
+            return (-1);
+        }
+        else
+        {
+            element = items[front];
+            if (front == rear)
+            {
+                front = -1;
+                rear = -1;
+            } 
             else
             {
-                while(i != rear)
-                {
-                    i = (i+1)%size;
-                    cout << arr[i] << " ";
-                }
+                front = (front + 1) % SIZE;
             }
+            return (element);
         }
+    }
 
+    void display()
+    {
+    
+        int i;
+        if (isEmpty())
+        {
+            cout << endl
+                 << "Empty Queue" << endl;
+        }
+        else
+        {
+            cout << "Front -> " << front;
+            cout << endl
+                 << "Items -> ";
+            for (i = front; i != rear; i = (i+1) % SIZE)
+                cout << items[i]<<" ";
+            cout << endl
+                 << "Rear -> " << rear;
+        }
+    }
 };
 
 int main()
 {
-    CircularQueue cq;
-    cq.enqueue(45);
-    cq.display();
+    CircularQueue q;
 
-
-
-    
-
-
-
+   
+    q.enQueue(127);
+    q.enQueue(129);
+    q.enQueue(149);
+    q.enQueue(159);
+    q.enQueue(169);
+    q.enQueue(192);
+    q.enQueue(500);
+    q.enQueue(500);
+    q.enQueue(250);
+    q.deQueue();
+    q.deQueue();
+    q.deQueue();
+    q.deQueue();
+    q.display();
 }
