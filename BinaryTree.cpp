@@ -148,10 +148,10 @@ int main()
 {
     node *root = NULL;
 
-    buildFromLevelOrder(root);
-    levelOrderTraversal(root);
-/*
-    // creating a tree
+    // buildFromLevelOrder(root);
+    // levelOrderTraversal(root);
+
+    //creating a tree
     root = buildTree(root);
     //1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
 
@@ -167,5 +167,4 @@ int main()
 
     cout  << endl << "Postorder traversal is: ";
     postorder(root);
-    */
 }

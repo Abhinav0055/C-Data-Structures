@@ -27,31 +27,21 @@ void print_arr(int arr[], int n)
 void bubblesort(int arr[], int n)
 {
     int i, j;
-    int num;
-    cout << "Enter the Iterations: ";
-    cin >> num;
-
     for (i = 0; i <= n - 1; i++)
     {
-        while (i==num)
-        {
-            bool swapped = false;
-            for (int j = 0; j < n - i - 1; j++)
-            {
-                if (arr[j + 1] < arr[j])
-                {
-                    swapped = true;
-                    swap(arr, j + 1, j);
-                }
-                  
 
-            }
-            if (!swapped)
+        bool swapped = false;
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            if (arr[j + 1] < arr[j])
             {
-                break;
+                swapped = true;
+                swap(arr, j + 1, j);
             }
-              cout << "Array after the Iteration: "<<endl;
-                    print_arr(arr, n);
+        }
+        if (!swapped)
+        {
+            break;
         }
     }
 }
@@ -65,6 +55,9 @@ int main()
     cout << "Enter the Elements in the Array: ";
     insert_arr(arr, n);
     bubblesort(arr, n);
+    cout << "Array after Sorting: " << endl;
+    print_arr(arr, n);
+    cout << endl;
 
     return 0;
 }
