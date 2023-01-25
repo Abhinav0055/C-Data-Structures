@@ -76,7 +76,7 @@ class Trie{
 
 int main(){
 
-    Trie *t = new Trie();
+        Trie *t = new Trie();
 
     t->insertWord("ARM");
     t->insertWord("DO");
